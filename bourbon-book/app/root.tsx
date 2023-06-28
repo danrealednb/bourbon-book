@@ -8,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import type { V2_MetaFunction } from "@remix-run/node";
 
 import Footer from "./components/util/Footer";
 
@@ -40,3 +41,10 @@ export default function App() {
     </html>
   );
 }
+
+export const meta: V2_MetaFunction = () => {
+  return [
+    { title: "My Bourbon Book" },
+    { description: "Track your bourbon collection and tastings" },
+  ];
+};

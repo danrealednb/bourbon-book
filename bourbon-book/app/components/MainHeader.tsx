@@ -3,7 +3,11 @@ import Logo from "~/components/util/Logo";
 function MainHeader() {
   return (
     <header id="main-header">
-      {/* <Logo /> */}
+      <div className="flex justify-center items-center space-x-2">
+        <h1 className="text-white text-xl">My Bourbon Book</h1>
+        <Logo />
+      </div>
+
       <nav id="main-nav">
         <ul className="flex space-x-1 space-y-5">
           <li className="flex-auto"></li>
