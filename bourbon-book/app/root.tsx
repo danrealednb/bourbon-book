@@ -9,6 +9,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import Footer from "./components/util/Footer";
+
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
@@ -24,6 +26,7 @@ export default function App() {
       </head>
       <body>
         <Outlet />
+        <Footer></Footer>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

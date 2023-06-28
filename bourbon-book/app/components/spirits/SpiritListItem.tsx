@@ -1,6 +1,6 @@
 import { Link, Form, useFetcher } from "@remix-run/react";
 
-function SpiritListItem({ id, brand, type }) {
+function SpiritListItem({ id, brand, type, name, proof }) {
   // const submit = useSubmit();
   const fetcher = useFetcher();
   function deleteExpenseItemHandler() {
@@ -26,8 +26,10 @@ function SpiritListItem({ id, brand, type }) {
   return (
     <article className="expense-item">
       <div>
-        <h2 className="expense-title">{brand}</h2>
+        <h2 className="expense-title">{name}</h2>
+        <p className="expense-amount">{brand}</p>
         <p className="expense-amount">{type}</p>
+        <p className="expense-amount">{proof}</p>
       </div>
       <menu className="expense-actions">
         <button onClick={deleteExpenseItemHandler}>Delete</button>

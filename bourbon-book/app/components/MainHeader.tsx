@@ -1,8 +1,9 @@
 import { NavLink, Form } from "@remix-run/react";
-
+import Logo from "~/components/util/Logo";
 function MainHeader() {
   return (
     <header id="main-header">
+      <Logo />
       <nav id="main-nav">
         <ul>
           <li>

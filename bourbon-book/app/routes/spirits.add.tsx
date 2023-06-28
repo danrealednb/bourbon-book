@@ -6,3 +6,6 @@ export default function AddSpiritPage() {
     </>
   );
 }
+
+// loader to get spirits for dropdown
+// action to send data
