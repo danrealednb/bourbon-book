@@ -11,6 +11,11 @@ function MainHeader() {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/brands" end>
+              Brands
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/spirits" end>
               Spirits
             </NavLink>
@@ -22,11 +27,11 @@ function MainHeader() {
           </li>
         </ul>
       </nav>
-      <nav id="cta-nav">
+      {/* <nav id="cta-nav">
         <Form method="post" action="logout">
           <button className="cta">Logout</button>
         </Form>
-      </nav>
+      </nav> */}
     </header>
   );
 }
