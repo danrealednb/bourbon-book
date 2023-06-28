@@ -11,11 +11,16 @@ datasource db {
 }
 
 model Spirit {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  brand     Brand    @relation(fields: [brandId], references: [id])
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  brand     Brand     @relation(fields: [brandId], references: [id])
   name      String
-  dateAdded DateTime @default(now())
-  brandId   String   @db.ObjectId
+  type      String
+  proof     String
+  dateAdded DateTime  @default(now())
+  brandId   String    @db.ObjectId
+  Bottle    Bottle?   @relation(fields: [bottleId], references: [id])
+  bottleId  String?   @db.ObjectId
+  Tasting   Tasting[]
 }
 
 model Brand {
@@ -23,4 +28,16 @@ model Brand {
   name      String
   dateAdded DateTime @default(now())
   Spirit    Spirit[]
+}
+
+model Tasting {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  notes    String
+  spirit   Spirit @relation(fields: [spiritId], references: [id])
+  spiritId String @db.ObjectId
+}
+
+model Bottle {
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  Spirit Spirit[]
 }

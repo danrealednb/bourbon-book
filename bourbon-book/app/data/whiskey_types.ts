@@ -1,0 +1,15 @@
+export enum WHISKEY_TYPES {
+  AMERICAN = "American",
+  BOURBON = "Bourbon",
+  TENNESSEE = "Tennessee",
+  CORN = "Corn",
+  RYE = "Rye",
+  WHEAT = "Wheat",
+  BLENDED = "Blended",
+  MALT = "Malt",
+  AUSTRALIAN = "Australian",
+  ENGLISH = "English",
+  SCOTCH = "Scotch",
+  JAPANESE = "Japanese",
+  INDIAN = "Indian",
+}
