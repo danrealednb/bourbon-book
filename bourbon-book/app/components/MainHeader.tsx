@@ -3,26 +3,43 @@ import Logo from "~/components/util/Logo";
 function MainHeader() {
   return (
     <header id="main-header">
-      <Logo />
+      {/* <Logo /> */}
       <nav id="main-nav">
-        <ul>
-          <li>
-            <NavLink to="/" end>
+        <ul className="flex space-x-1 space-y-5">
+          <li className="flex-auto"></li>
+          <li className="flex-auto">
+            <NavLink
+              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              to="/"
+              end
+            >
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/brands" end>
+          <li className="flex-auto">
+            <NavLink
+              to="/brands"
+              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              end
+            >
               Brands
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/spirits" end>
+          <li className="flex-auto">
+            <NavLink
+              to="/spirits"
+              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              end
+            >
               Spirits
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/tastings" end>
+          <li className="flex-auto">
+            <NavLink
+              to="/tastings"
+              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              end
+            >
               Tastings
             </NavLink>
           </li>

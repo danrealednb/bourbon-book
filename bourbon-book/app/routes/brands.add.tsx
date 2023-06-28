@@ -5,7 +5,9 @@ import { redirect } from "@remix-run/node";
 export default function AddBrandPage() {
   return (
     <>
-      <h1>Add New Brand</h1>
+      <h1 className="text-white text-xl flex justify-center py-5">
+        Add New Brand
+      </h1>
       <BrandForm />
     </>
   );

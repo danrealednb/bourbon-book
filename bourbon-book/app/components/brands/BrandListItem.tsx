@@ -19,7 +19,7 @@ function BrandListItem({ id, brand }) {
   if (fetcher.state !== "idle") {
     return (
       <article className="expense-item locked">
-        <p>Deleting...</p>
+        <p className="text-white">Deleting {brand}...</p>
       </article>
     );
   }
@@ -27,11 +27,21 @@ function BrandListItem({ id, brand }) {
   return (
     <article className="expense-item">
       <div>
-        <h2 className="expense-title">{brand}</h2>
+        <h2 className="expense-title font-bold py-1 text-lg text-center">
+          {brand}
+        </h2>
       </div>
-      <menu className="expense-actions">
-        <button onClick={deleteExpenseItemHandler}>Delete</button>
-        <Link to={id}>Edit</Link>
+      <menu className="expense-actions flex justify-center items-center py-5">
+        <button className="px-1 py-1 bg-dark-blue text-white rounded">
+          <Link to={id}>Edit</Link>
+        </button>
+        <div className="px-1"></div>
+        <button
+          className="px-1 py-1 bg-red text-white rounded"
+          onClick={deleteExpenseItemHandler}
+        >
+          Delete
+        </button>
       </menu>
     </article>
   );

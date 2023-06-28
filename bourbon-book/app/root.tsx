@@ -11,8 +11,14 @@ import {
 
 import Footer from "./components/util/Footer";
 
+import stylesheet from "~/tailwind.css";
+
+// export const links: LinksFunction = () => [
+//   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+// ];
+
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: stylesheet },
 ];
 
 export default function App() {
@@ -24,7 +30,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-blue">
         <Outlet />
         <Footer></Footer>
         <ScrollRestoration />

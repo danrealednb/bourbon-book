@@ -5,7 +5,9 @@ import { deleteBrand, updateBrand, getBrand } from "~/data/brands.server";
 export default function UpdateBrandPage() {
   return (
     <>
-      <h1>Update Brand</h1>
+      <h1 className="text-white text-xl flex justify-center py-5">
+        Update Brand
+      </h1>
       <BrandForm />
     </>
   );

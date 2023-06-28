@@ -8,12 +8,17 @@ export default function BrandsPage() {
   const hasBrands = brands && brands.length > 0;
   return (
     <>
-      <h1>Brands</h1>
-      <main>
-        <Link to="add">
-          <FaPlus />
-          <span>Add Brand</span>
-        </Link>
+      {/* <h1>Brands</h1> */}
+      <main className="">
+        <div className="flex justify-center py-5">
+          <Link to="add" className="">
+            <span className="flex px-1 text-justify text-white border-2 rounded">
+              <FaPlus className="text-white" />
+              Add Brand
+            </span>
+          </Link>
+        </div>
+
         {hasBrands && <BrandsList brands={brands} />}
         {!hasBrands && (
           <section id="no-events">

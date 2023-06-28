@@ -4,9 +4,9 @@ function Footer() {
     const year = new Date().getFullYear();
 
   return (
-    <div id="logo" style={{textAlign: "center"}}>
+    <div id="logo" style={{textAlign: "center"}} className="pt-10 pb-5 text-white">
     {`Copyright © ${year} `}
-      {<Link to="/">My Bourbon Book</Link>}
+      {<Link to="/" className="underline text-dark-blue">My Bourbon Book</Link>}
     </div>
   );
 }
