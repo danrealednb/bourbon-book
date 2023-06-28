@@ -16,7 +16,7 @@ export async function addBrand(brandData) {
 export async function getBrands() {
   try {
     const brands = await prisma.brand.findMany({
-      orderBy: { name: "desc" },
+      orderBy: { name: "asc" },
     });
     return brands;
   } catch (error) {

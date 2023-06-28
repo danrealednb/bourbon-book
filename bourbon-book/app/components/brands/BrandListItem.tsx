@@ -3,7 +3,9 @@ import { Link, useFetcher } from "@remix-run/react";
 function BrandListItem({ id, brand }) {
   const fetcher = useFetcher();
   function deleteExpenseItemHandler() {
-    const proceed = confirm("Are you sure? Do you want to delete this item?");
+    const proceed = confirm(
+      `Are you sure? Do you want to delete this brand? (${brand})`
+    );
 
     if (!proceed) {
       return;
