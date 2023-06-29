@@ -4,7 +4,9 @@ function SpiritListItem({ id, brand, type, name, proof }) {
   // const submit = useSubmit();
   const fetcher = useFetcher();
   function deleteExpenseItemHandler() {
-    const proceed = confirm("Are you sure? Do you want to delete this item?");
+    const proceed = confirm(
+      `Are you sure? Do you want to delete this item?  (${brand} ${name})`
+    );
 
     if (!proceed) {
       return;
@@ -18,7 +20,9 @@ function SpiritListItem({ id, brand, type, name, proof }) {
   if (fetcher.state !== "idle") {
     return (
       <article className="expense-item locked">
-        <p>Deleting...</p>
+        <p>
+          Deleting Dan {brand} {name}...
+        </p>
       </article>
     );
   }
@@ -26,10 +30,10 @@ function SpiritListItem({ id, brand, type, name, proof }) {
   return (
     <article className="expense-item">
       <div>
-        <h2 className="expense-title">{name}</h2>
         <p className="expense-amount">{brand}</p>
+        <p className="expense-title">{name}</p>
         <p className="expense-amount">{type}</p>
-        <p className="expense-amount">{proof}</p>
+        <p className="expense-amount">{proof} Proof</p>
       </div>
       <menu className="expense-actions">
         <button onClick={deleteExpenseItemHandler}>Delete</button>

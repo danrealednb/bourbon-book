@@ -5,7 +5,8 @@ export async function addSpirit(spiritData) {
     return await prisma.spirit.create({
       data: {
         name: spiritData.name,
-        brand: spiritData.brand,
+        brandId: spiritData.brandId,
+        brandName: spiritData.brandName,
         type: spiritData.type,
         proof: spiritData.proof,
       },
@@ -46,7 +47,8 @@ export async function updateSpirit(id, spiritData) {
       where: { id },
       data: {
         name: spiritData.name,
-        brand: spiritData.brand,
+        brandId: spiritData.brandId,
+        brandName: spiritData.brandName,
         type: spiritData.type,
         proof: spiritData.proof,
       },

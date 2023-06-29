@@ -8,7 +8,7 @@ function SpiritsList({ spirits }) {
           <SpiritListItem
             id={spirit.id}
             name={spirit.name}
-            brand={spirit.brand}
+            brand={spirit.brandName}
             type={spirit.type}
             proof={spirit.proof}
           />

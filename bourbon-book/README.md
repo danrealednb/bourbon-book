@@ -60,3 +60,9 @@ netlify deploy --build
 # production deployment
 netlify deploy --build --prod
 ```
+
+## Prisma
+
+before you start local development environment run `npx prisma generate`
+
+If you update the models do this. `npx prisma db push`
