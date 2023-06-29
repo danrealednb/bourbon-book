@@ -17,7 +17,6 @@ export default function AddSpiritPage() {
 // loader to get spirits for dropdown
 // action to send data
 export async function loader() {
-  console.log("---SPIRITS ADD LOADER---");
   const brands = await getBrands();
   return brands;
 }

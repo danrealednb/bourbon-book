@@ -33,7 +33,6 @@ export default function SpiritsPage() {
 }
 
 export async function loader() {
-  console.log("---SPIRITS LOADER---");
   const spirits = await getSpirits();
   return spirits;
 }

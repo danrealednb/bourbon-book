@@ -13,10 +13,7 @@ type BRAND = { id: string; name: string; dateAdded: string };
 
 function SpiritForm() {
   const { spiritData, brands } = useLoaderData();
-  console.log("BRANDS-----", brands);
-  console.log("SPIRIT DATA-----", spiritData);
   const params = useParams();
-  console.log("PASSED IN SPIRIT ID", params.id);
   const navigation = useNavigation();
   const isSubmitting = navigation.state !== "idle";
 
@@ -43,9 +40,7 @@ function SpiritForm() {
 
   const [whiskey_brand, setBrand] = useState(defaultValues.brand);
   const handleChangeBrand = (e) => {
-    console.log("Selected Brand Id", e.target.value);
     const brandName = e.target[e.target.selectedIndex].text;
-    console.log("Selected Brand Name", brandName);
     setBrand(brandName);
   };
 

@@ -15,12 +15,10 @@ export default function UpdateSpiritPage() {
 }
 
 export async function loader({ params }) {
-  console.log("---SPIRITS UPDATE LOADER---");
   const brands = await getBrands();
 
   const spiritId = params.id;
   const spiritData = await getSpirit(spiritId);
-  console.log("GOT SPIRIT", spiritData);
   if (!spiritData) {
     throw new Response("Spirit not found", { status: 404 });
   }

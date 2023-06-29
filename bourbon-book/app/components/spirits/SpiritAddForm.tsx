@@ -23,9 +23,7 @@ function SpiritAddForm() {
 
   const [whiskey_brand, setBrand] = useState(brands[0].name);
   const handleChangeBrand = (e) => {
-    console.log("Selected Brand Id", e.target.value);
     const brandName = e.target[e.target.selectedIndex].text;
-    console.log("Selected Brand Name", brandName);
     setBrand(brandName);
   };
 

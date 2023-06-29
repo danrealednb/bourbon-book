@@ -34,7 +34,6 @@ export default function BrandsPage() {
 }
 
 export async function loader() {
-  console.log("---BRANDS LOADER---");
   const brands = await getBrands();
   return brands;
 }
