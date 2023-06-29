@@ -100,7 +100,7 @@ function SpiritAddForm() {
           </p>
         </p>
       </div>
-      <div className="form-actions flex justify-center items-center py-5">
+      <div className="form-actions flex justify-center items-center py-5 space-x-2">
         <button
           disabled={isSubmitting}
           className="px-1 text-white border-2 rounded"
