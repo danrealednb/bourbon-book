@@ -47,14 +47,13 @@ function BrandForm() {
           placeholder="Enter Brand Here"
         />
       </p>
-      <div className="form-actions flex justify-center items-center py-5">
+      <div className="form-actions flex justify-center items-center py-5 space-x-2">
         <button
           disabled={isSubmitting}
           className="px-1 text-white border-2 rounded"
         >
           {isSubmitting ? "Saving..." : "Save Brand"}
         </button>
-        <div className="px-1"></div>
         <button
           className="px-1 text-white border-2 rounded"
           // onClick={() => setButtonText("Cancelling...")}

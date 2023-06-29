@@ -59,22 +59,24 @@ function SpiritForm() {
       className="form"
       id="spirit-form"
     >
-      <div>
-        <p>
-          <label htmlFor="name">Spirit Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            defaultValue={defaultValues.name}
-          />
-        </p>
-      </div>
+      <p className="grid justify-center py-5">
+        <label htmlFor="name" className="text-white py-2 text-center">
+          Spirit Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          defaultValue={defaultValues.name}
+        />
+      </p>
 
-      <div className="form-row">
-        <p>
-          <label htmlFor="brandId">Brand</label>
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
+          <label htmlFor="brandId" className="text-white py-2 text-center">
+            Brand
+          </label>
           <p>
             <select
               id="brandId"
@@ -94,7 +96,7 @@ function SpiritForm() {
         </p>
       </div>
 
-      <div>
+      <div className="form-actions flex justify-center items-center">
         <input
           type="hidden"
           id="brandName"
@@ -103,9 +105,11 @@ function SpiritForm() {
         />
       </div>
       {/* <p>Selectd Brand {whiskey_brand}</p> */}
-      <div>
-        <p>
-          <label htmlFor="proof">Proof</label>
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
+          <label htmlFor="proof" className="text-white py-2 text-center">
+            Proof
+          </label>
           <input
             type="number"
             id="proof"
@@ -115,9 +119,11 @@ function SpiritForm() {
           />
         </p>
       </div>
-      <div className="form-row">
-        <p>
-          <label htmlFor="type">Whiskey Type</label>
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
+          <label htmlFor="type" className="text-white py-2 text-center">
+            Whiskey Type
+          </label>
           <p>
             <select id="type" name="type" defaultValue={defaultValues.type}>
               {WHISKEY_TYPES.map((whiskey) => {
@@ -132,11 +138,19 @@ function SpiritForm() {
         </p>
       </div>
 
-      <div className="form-actions">
-        <button disabled={isSubmitting}>
+      <div className="form-actions flex justify-center items-center py-5 space-x-2">
+        <button
+          disabled={isSubmitting}
+          className="px-1 text-white border-2 rounded"
+        >
           {isSubmitting ? "Saving..." : "Save Spirit"}
         </button>
-        <Link to="..">Cancel</Link>
+        <button
+          disabled={isSubmitting}
+          className="px-1 text-white border-2 rounded"
+        >
+          <Link to="..">Cancel</Link>
+        </button>
       </div>
     </Form>
   );
