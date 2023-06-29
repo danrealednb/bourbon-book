@@ -48,11 +48,11 @@ export async function loader({ request }) {
   // get all brands
   const url = new URL(request.url);
   const search = new URLSearchParams(url.search);
-  console.log("DAN1", search);
-  console.log("DAN2", search.get("query"));
+  // console.log("DAN1", search);
+  // console.log("DAN2", search.get("query"));
   const query = search.get("query") || "";
   const spirits = await getSpiritsBySpirit(query);
-  console.log(spirits);
+  // console.log(spirits);
   return spirits;
   // const spirits = await getSpirits(search);
   // return ;
