@@ -31,11 +31,10 @@ function BrandListItem({ id, brand }) {
           {brand}
         </h2>
       </div>
-      <menu className="expense-actions flex justify-center items-center py-5">
+      <menu className="expense-actions flex justify-center items-center py-5 space-x-2">
         <button className="px-1 py-1 bg-dark-blue text-white rounded">
           <Link to={id}>Edit</Link>
         </button>
-        <div className="px-1"></div>
         <button
           className="px-1 py-1 bg-red text-white rounded"
           onClick={deleteExpenseItemHandler}

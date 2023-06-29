@@ -20,7 +20,7 @@ function SpiritListItem({ id, brand, type, name, proof }) {
   if (fetcher.state !== "idle") {
     return (
       <article className="expense-item locked">
-        <p>
+        <p className="text-white">
           Deleting Dan {brand} {name}...
         </p>
       </article>
@@ -30,17 +30,23 @@ function SpiritListItem({ id, brand, type, name, proof }) {
   return (
     <article className="expense-item">
       <div>
-        <p className="expense-amount">{brand}</p>
-        <p className="expense-title">{name}</p>
-        <p className="expense-amount">{type}</p>
-        <p className="expense-amount">{proof} Proof</p>
+        <p className="expense-title font-bold py-1 text-lg text-center">
+          {name}
+        </p>
+        <p className="expense-title py-1 text-lg text-center">{brand}</p>
+        <p className="expense-title py-1 text-lg text-center">{type}</p>
+        <p className="expense-title py-1 text-lg text-center">{proof} Proof</p>
       </div>
-      <menu className="expense-actions">
-        <button onClick={deleteExpenseItemHandler}>Delete</button>
-        {/* <Form method='delete' action={`/expenses/${id}`}>
-          <button>Delete</button>
-        </Form> */}
-        <Link to={id}>Edit</Link>
+      <menu className="expense-actions flex justify-center items-center py-5 space-x-2">
+        <button className="px-1 py-1 bg-dark-blue text-white rounded">
+          <Link to={id}>Edit</Link>
+        </button>
+        <button
+          className="px-1 py-1 bg-red text-white rounded"
+          onClick={deleteExpenseItemHandler}
+        >
+          Delete
+        </button>
       </menu>
     </article>
   );

@@ -34,15 +34,18 @@ function SpiritAddForm() {
 
   return (
     <Form method="post" className="form" id="spirit-form">
-      <div>
-        <p>
-          <label htmlFor="name">Spirit Name</label>
-          <input type="text" id="name" name="name" required />
-        </p>
-      </div>
-      <div className="form-row">
-        <p>
-          <label htmlFor="brandId">Brand</label>
+      <p className="grid justify-center py-5">
+        <label htmlFor="name" className="text-white py-2 text-center">
+          Spirit Name
+        </label>
+        <input type="text" id="name" name="name" required />
+      </p>
+
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
+          <label htmlFor="brandId" className="text-white py-2 text-center">
+            Brand
+          </label>
           <p>
             <select id="brandId" name="brandId" onChange={handleChangeBrand}>
               {brands.map((brand: BRAND) => {
@@ -57,7 +60,7 @@ function SpiritAddForm() {
           {/* <p>Selectd Brand {whiskey_brand}</p> */}
         </p>
       </div>
-      <div>
+      <div className="form-actions flex justify-center items-center">
         <input
           type="hidden"
           id="brandName"
@@ -65,35 +68,51 @@ function SpiritAddForm() {
           value={whiskey_brand}
         />
       </div>
-      <div>
-        <p>
-          <label htmlFor="proof">Proof</label>
-          <input type="number" id="proof" name="proof" required />
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
+          <label htmlFor="proof" className="text-white py-2 text-center">
+            Proof
+          </label>
+          <input
+            type="number"
+            id="proof"
+            name="proof"
+            required
+            placeholder="Enter Proof"
+          />
         </p>
       </div>
-      <div>
-        <div className="form-row">
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
+          <label htmlFor="type" className="text-white py-2 text-center">
+            Whiskey Type
+          </label>
           <p>
-            <label htmlFor="type">Whiskey Type</label>
-            <p>
-              <select id="type" name="type" defaultValue={WHISKEY_TYPES[0]}>
-                {WHISKEY_TYPES.map((whiskey) => {
-                  return (
-                    <option key={whiskey} value={whiskey}>
-                      {whiskey}
-                    </option>
-                  );
-                })}
-              </select>
-            </p>
+            <select id="type" name="type" defaultValue={WHISKEY_TYPES[0]}>
+              {WHISKEY_TYPES.map((whiskey) => {
+                return (
+                  <option key={whiskey} value={whiskey}>
+                    {whiskey}
+                  </option>
+                );
+              })}
+            </select>
           </p>
-        </div>
+        </p>
       </div>
-      <div className="form-actions">
-        <button disabled={isSubmitting}>
+      <div className="form-actions flex justify-center items-center py-5">
+        <button
+          disabled={isSubmitting}
+          className="px-1 text-white border-2 rounded"
+        >
           {isSubmitting ? "Saving..." : "Save Spirit"}
         </button>
-        <Link to="..">Cancel</Link>
+        <button
+          disabled={isSubmitting}
+          className="px-1 text-white border-2 rounded"
+        >
+          <Link to="..">Cancel</Link>
+        </button>
       </div>
     </Form>
   );
