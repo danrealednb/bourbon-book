@@ -47,6 +47,15 @@ function MainHeader() {
               Tastings
             </NavLink>
           </li>
+          <li className="flex-auto">
+            <NavLink
+              to="/collection"
+              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              end
+            >
+              Collection
+            </NavLink>
+          </li>
         </ul>
       </nav>
       {/* <nav id="cta-nav">

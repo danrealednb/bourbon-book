@@ -8,42 +8,49 @@ import {
 
 import { useState } from "react";
 
-import Dropdown from "~/components/util/Dropdown";
-// import { WHISKEY_TYPES } from "~/data/whiskey_types";
-const WHISKEY_TYPES = ["Bourbon", "Scotch", "Rye"];
+import { WHISKEY_TYPES } from "~/data/whiskey_types";
+type BRAND = { id: string; name: string; dateAdded: string };
 
 function SpiritForm() {
-  // const [whiskey_type, setType] = useState(WHISKEY_TYPES.BOURBON);
-  const [whiskey_type, setType] = useState("Bourbon");
-  const [whiskey_brand, setBrand] = useState("Buffalo Trace");
-  const handleChange = (e) => setType(e.target.value);
-  const handleChange2 = (e) => setBrand(e.target.value);
-
-  console.log(whiskey_type);
-  console.log(whiskey_brand);
   const { spiritData, brands } = useLoaderData();
   console.log("BRANDS-----", brands);
+  console.log("SPIRIT DATA-----", spiritData);
   const params = useParams();
+  console.log("PASSED IN SPIRIT ID", params.id);
   const navigation = useNavigation();
   const isSubmitting = navigation.state !== "idle";
+
   const defaultValues = spiritData
     ? {
         name: spiritData.name,
-        brand: spiritData.brand,
+        brand: spiritData.brandName,
+        brandId: spiritData.brandId,
         type: spiritData.type,
         proof: spiritData.proof,
       }
     : {
         name: "",
         brand: "",
+        brandId: "",
         type: "",
         proof: "",
       };
 
   if (params.id && !spiritData) {
     // invalid id
-    return <p>Invalid Brand Id</p>;
+    return <p>Invalid Spirit Id</p>;
   }
+
+  const [whiskey_brand, setBrand] = useState(defaultValues.brand);
+  const handleChangeBrand = (e) => {
+    console.log("Selected Brand Id", e.target.value);
+    const brandName = e.target[e.target.selectedIndex].text;
+    console.log("Selected Brand Name", brandName);
+    setBrand(brandName);
+  };
+
+  // console.log(whiskey_type);
+  console.log(whiskey_brand);
 
   return (
     <Form
@@ -64,22 +71,41 @@ function SpiritForm() {
           />
         </p>
       </div>
+
       <div className="form-row">
         <p>
-          <label htmlFor="type">Brand</label>
+          <label htmlFor="brandId">Brand</label>
           <p>
-            <Dropdown
-              options={brands}
-              id="type"
-              defaultValue={defaultValues.brand}
-              onChange={handleChange2}
-            />
+            <select
+              id="brandId"
+              name="brandId"
+              onChange={handleChangeBrand}
+              defaultValue={defaultValues.brandId}
+            >
+              {brands.map((brand: BRAND) => {
+                return (
+                  <option key={brand.name} value={brand.id}>
+                    {brand.name}
+                  </option>
+                );
+              })}
+            </select>
           </p>
         </p>
       </div>
+
+      <div>
+        <input
+          type="hidden"
+          id="brandName"
+          name="brandName"
+          value={whiskey_brand}
+        />
+      </div>
+      {/* <p>Selectd Brand {whiskey_brand}</p> */}
       <div>
         <p>
-          <label htmlFor="name">Proof</label>
+          <label htmlFor="proof">Proof</label>
           <input
             type="number"
             id="proof"
@@ -89,21 +115,23 @@ function SpiritForm() {
           />
         </p>
       </div>
-      <div>
-        <div className="form-row">
+      <div className="form-row">
+        <p>
+          <label htmlFor="type">Whiskey Type</label>
           <p>
-            <label htmlFor="type">Whiskey Type</label>
-            <p>
-              <Dropdown
-                options={WHISKEY_TYPES}
-                id="type"
-                defaultValue={defaultValues.type}
-                onChange={handleChange}
-              />
-            </p>
+            <select id="type" name="type" defaultValue={defaultValues.type}>
+              {WHISKEY_TYPES.map((whiskey) => {
+                return (
+                  <option key={whiskey} value={whiskey}>
+                    {whiskey}
+                  </option>
+                );
+              })}
+            </select>
           </p>
-        </div>
+        </p>
       </div>
+
       <div className="form-actions">
         <button disabled={isSubmitting}>
           {isSubmitting ? "Saving..." : "Save Spirit"}
