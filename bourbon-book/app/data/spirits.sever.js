@@ -71,3 +71,14 @@ export async function getSpirit(id) {
     throw new Error("Failed to get spirit.");
   }
 }
+export async function getSpiritsByBrand(brand) {
+  try {
+    const spirits = await prisma.spirit.findMany({
+      where: { brandName: brand.brand },
+    });
+    return spirits;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to get spirits by brands.");
+  }
+}
