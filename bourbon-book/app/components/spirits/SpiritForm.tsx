@@ -111,6 +111,8 @@ function SpiritForm() {
             name="proof"
             required
             defaultValue={defaultValues.proof}
+            step="0.01"
+            min="0"
           />
         </p>
       </div>

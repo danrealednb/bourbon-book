@@ -8,7 +8,7 @@ export async function addSpirit(spiritData) {
         brandId: spiritData.brandId,
         brandName: spiritData.brandName,
         type: spiritData.type,
-        proof: spiritData.proof,
+        proof: +spiritData.proof,
       },
     });
   } catch (error) {
@@ -50,7 +50,7 @@ export async function updateSpirit(id, spiritData) {
         brandId: spiritData.brandId,
         brandName: spiritData.brandName,
         type: spiritData.type,
-        proof: spiritData.proof,
+        proof: +spiritData.proof,
       },
     });
     return spirit;

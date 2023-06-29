@@ -21,11 +21,17 @@ export default function BrandsPage() {
 
         {hasBrands && <BrandsList brands={brands} />}
         {!hasBrands && (
-          <section id="no-events">
-            <h1>No brands found</h1>
-            <p>
-              Start <Link to="add">adding some</Link> today.
-            </p>
+          <section id="no-events" className="flex justify-center">
+            <div className="grid justify-center text-center">
+              <h1 className="text-white">No brands found</h1>
+              <p className="text-white">
+                Start{" "}
+                <Link to="add" className="underline">
+                  adding some
+                </Link>{" "}
+                today.
+              </p>
+            </div>
           </section>
         )}
       </main>

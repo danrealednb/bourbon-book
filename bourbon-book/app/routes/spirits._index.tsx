@@ -20,11 +20,17 @@ export default function SpiritsPage() {
 
         {hasSpirits && <SpiritsList spirits={spirits} />}
         {!hasSpirits && (
-          <section id="no-events">
-            <h1>No spirits found</h1>
-            <p>
-              Start <Link to="add">adding some</Link> today.
-            </p>
+          <section id="no-events" className="flex justify-center">
+            <div className="grid justify-center text-center">
+              <h1 className="text-white">No spirits found</h1>
+              <p className="text-white">
+                Start{" "}
+                <Link to="add" className="underline">
+                  adding some
+                </Link>{" "}
+                today.
+              </p>
+            </div>
           </section>
         )}
       </main>

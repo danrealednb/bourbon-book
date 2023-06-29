@@ -77,6 +77,8 @@ function SpiritAddForm() {
             name="proof"
             required
             placeholder="Enter Proof"
+            step="0.01"
+            min="0"
           />
         </p>
       </div>

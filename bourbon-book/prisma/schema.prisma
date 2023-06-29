@@ -14,7 +14,7 @@ model Spirit {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   type      String
-  proof     String
+  proof     Float
   dateAdded DateTime @default(now())
   brand     Brand    @relation(fields: [brandId], references: [id])
   // Bottle    Bottle?  @relation(fields: [bottleId], references: [id])
