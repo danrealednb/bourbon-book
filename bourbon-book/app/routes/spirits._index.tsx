@@ -1,7 +1,8 @@
 import { FaPlus } from "react-icons/fa";
 import { Link, useLoaderData } from "@remix-run/react";
 import SpiritsList from "~/components/spirits/SpiritList";
-import { getSpirits } from "~/data/spirits.sever";
+import { getSpirits, getSpiritsBySpirit } from "~/data/spirits.sever";
+import SpiritFilterBox from "~/components/spirits/SpiritFilterBox";
 
 export default function SpiritsPage() {
   const spirits = useLoaderData();
@@ -17,6 +18,8 @@ export default function SpiritsPage() {
             </span>
           </Link>
         </div>
+
+        <SpiritFilterBox />
 
         {hasSpirits && <SpiritsList spirits={spirits} />}
         {!hasSpirits && (
@@ -38,7 +41,19 @@ export default function SpiritsPage() {
   );
 }
 
-export async function loader() {
-  const spirits = await getSpirits();
+export async function loader({ request }) {
+  // const spirits = await getSpirits();
+  // return spirits;
+
+  // get all brands
+  const url = new URL(request.url);
+  const search = new URLSearchParams(url.search);
+  console.log("DAN1", search);
+  console.log("DAN2", search.get("query"));
+  const query = search.get("query") || "";
+  const spirits = await getSpiritsBySpirit(query);
+  console.log(spirits);
   return spirits;
+  // const spirits = await getSpirits(search);
+  // return ;
 }
