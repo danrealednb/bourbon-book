@@ -13,6 +13,8 @@ export default {
       white: colors.white,
       green: colors.green[500],
       amber: colors.amber[500],
+      yellow: colors.yellow[500],
+      gray: colors.gray[500],
     },
     extend: {},
   },
