@@ -1,11 +1,11 @@
 import { Link, Form, useFetcher } from "@remix-run/react";
 
-function SpiritListItem({ id, brand, type, name, proof }) {
+function SpiritListItem({ id, spirit }) {
   // const submit = useSubmit();
   const fetcher = useFetcher();
   function deleteExpenseItemHandler() {
     const proceed = confirm(
-      `Are you sure? Do you want to delete this item?  (${brand} ${name})`
+      `Are you sure? Do you want to delete this item?  (${spirit.brandName} ${spirit.name})`
     );
 
     if (!proceed) {
@@ -21,21 +21,33 @@ function SpiritListItem({ id, brand, type, name, proof }) {
     return (
       <article className="expense-item locked">
         <p className="text-white">
-          Deleting Dan {brand} {name}...
+          Deleting Dan {spirit.brandName} {spirit.name}...
         </p>
       </article>
     );
   }
 
+  const getAge =
+    spirit.age === 0
+      ? "Unaged"
+      : spirit.age === 1
+      ? `${spirit.age} Year Old`
+      : `${spirit.age} Years Old`;
+
   return (
     <article className="expense-item">
       <div>
         <p className="expense-title font-bold py-1 text-lg text-center">
-          {name}
+          {spirit.name}
         </p>
-        <p className="expense-title py-1 text-lg text-center">{brand}</p>
-        <p className="expense-title py-1 text-lg text-center">{type}</p>
-        <p className="expense-title py-1 text-lg text-center">{proof} Proof</p>
+        <p className="expense-title py-1 text-lg text-center">
+          {spirit.brandName}
+        </p>
+        <p className="expense-title py-1 text-lg text-center">{spirit.type}</p>
+        <p className="expense-title py-1 text-lg text-center">
+          {spirit.proof} Proof
+        </p>
+        <p className="expense-title py-1 text-lg text-center">{getAge}</p>
       </div>
       <menu className="expense-actions flex justify-center items-center py-5 space-x-2">
         <button className="px-1 py-1 bg-dark-blue text-white rounded">

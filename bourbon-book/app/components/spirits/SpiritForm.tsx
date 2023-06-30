@@ -24,6 +24,7 @@ function SpiritForm() {
         brandId: spiritData.brandId,
         type: spiritData.type,
         proof: spiritData.proof,
+        age: spiritData.age,
       }
     : {
         name: "",
@@ -31,6 +32,7 @@ function SpiritForm() {
         brandId: "",
         type: "",
         proof: "",
+        age: "",
       };
 
   if (params.id && !spiritData) {
@@ -113,6 +115,23 @@ function SpiritForm() {
             defaultValue={defaultValues.proof}
             step="0.01"
             min="0"
+          />
+        </p>
+      </div>
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
+          <label htmlFor="age" className="text-white py-2 text-center">
+            Age
+          </label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            required
+            placeholder="Enter Age"
+            step="1"
+            min="0"
+            defaultValue={defaultValues.age}
           />
         </p>
       </div>

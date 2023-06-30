@@ -9,6 +9,7 @@ export async function addSpirit(spiritData) {
         brandName: spiritData.brandName,
         type: spiritData.type,
         proof: +spiritData.proof,
+        age: +spiritData.age,
       },
     });
   } catch (error) {
@@ -51,6 +52,7 @@ export async function updateSpirit(id, spiritData) {
         brandName: spiritData.brandName,
         type: spiritData.type,
         proof: +spiritData.proof,
+        age: +spiritData.age,
       },
     });
     return spirit;
@@ -99,6 +101,7 @@ export async function getSpiritsBySpirit(spirit) {
           },
         ],
       },
+      orderBy: { brandName: "asc" },
     });
     return spirits;
   } catch (error) {

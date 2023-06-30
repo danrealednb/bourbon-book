@@ -18,7 +18,9 @@ export async function addCollectionItem(collectionData) {
 
 export async function getCollection() {
   try {
-    const collection = await prisma.collection.findMany({});
+    const collection = await prisma.collection.findMany({
+      orderBy: { spiritName: "asc" },
+    });
     return collection;
   } catch (error) {
     console.log(error);

@@ -14,10 +14,12 @@ function SpiritsList({ spirits }) {
           <li key={spirit.id} className="text-white">
             <SpiritListItem
               id={spirit.id}
-              name={spirit.name}
-              brand={spirit.brandName}
-              type={spirit.type}
-              proof={spirit.proof}
+              // name={spirit.name}
+              // brand={spirit.brandName}
+              // type={spirit.type}
+              // proof={spirit.proof}
+              // age={spirit.age}
+              spirit={spirit}
             />
           </li>
         ))}

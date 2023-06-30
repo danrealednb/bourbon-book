@@ -84,6 +84,22 @@ function SpiritAddForm() {
       </div>
       <div className="form-actions flex justify-center items-center py-5">
         <p className="form-actions grid justify-center items-center">
+          <label htmlFor="age" className="text-white py-2 text-center">
+            Age
+          </label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            required
+            placeholder="Enter Age"
+            step="1"
+            min="0"
+          />
+        </p>
+      </div>
+      <div className="form-actions flex justify-center items-center py-5">
+        <p className="form-actions grid justify-center items-center">
           <label htmlFor="type" className="text-white py-2 text-center">
             Whiskey Type
           </label>
