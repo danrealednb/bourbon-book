@@ -2,6 +2,7 @@ import { addCollectionItem, getCollection } from "~/data/collection.server";
 import { redirect } from "@remix-run/node";
 import CollectionAddForm from "~/components/collection/CollectionAddForm";
 import { getSpirits } from "~/data/spirits.sever";
+import { requireUserSession } from "~/data/auth.server";
 
 export default function AddCollectionPage() {
   return (
@@ -20,6 +21,7 @@ export async function loader() {
 }
 
 export async function action({ request }) {
+  const userId = await requireUserSession(request);
   const formData = await request.formData();
   const collectionData = Object.fromEntries(formData);
 
@@ -31,6 +33,6 @@ export async function action({ request }) {
   };
   console.log(obj);
 
-  await addCollectionItem(obj);
+  await addCollectionItem(obj, userId);
   return redirect("/collection");
 }
