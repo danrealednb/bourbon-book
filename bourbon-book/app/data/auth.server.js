@@ -102,3 +102,8 @@ export async function requireUserSession(request) {
   }
   return userId;
 }
+
+export async function getUserCount() {
+  const userCount = await prisma.user.count({});
+  return userCount;
+}

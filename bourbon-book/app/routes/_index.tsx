@@ -1,7 +1,10 @@
 // import type { V2_MetaFunction } from "@remix-run/node";
 import MainHeader from "~/components/MainHeader";
 import { FaGlassWhiskey } from "react-icons/fa";
-import { requireUserSession } from "~/data/auth.server";
+import { getUserCount, requireUserSession } from "~/data/auth.server";
+import { useLoaderData } from "@remix-run/react";
+import { getBrandsCount } from "~/data/brands.server";
+import { getSpiritsCount } from "~/data/spirits.sever";
 
 // export const meta: V2_MetaFunction = () => {
 //   return [
@@ -11,6 +14,7 @@ import { requireUserSession } from "~/data/auth.server";
 // };
 
 export default function Index() {
+  const { userId, userCount, brandsCount, spiritsCount } = useLoaderData();
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       {/* <ul>
@@ -56,12 +60,30 @@ export default function Index() {
             djreale@gmail.com
           </a>
         </p>
+
         <div className="flex justify-center text-white space-x-2 pt-5">
           <p className="font-bold"> Cheers!</p>
           <FaGlassWhiskey className="text-white text-3xl" />
         </div>
       </div>
+      <div className="grid justify-center text-white text-center space-x-2 pt-10 pb-5">
+        <h2 className="font-bold text-xl underline">My Bourbon Book Stats</h2>
+
+        <div className="flex justify-center">
+          <label>User Count:</label>
+          <p className="font-bold text-yellow underline">{userCount}</p>
+        </div>
+        <div className="flex justify-center">
+          <label>Brands Count:</label>
+          <p className="font-bold text-yellow underline">{brandsCount}</p>
+        </div>
+        <div className="flex justify-center">
+          <label>Spirits Count:</label>
+          <p className="font-bold text-yellow underline">{spiritsCount}</p>
+        </div>
+      </div>
     </div>
+
     // <div>
     //   <MainHeader />
     // </div>
@@ -69,5 +91,10 @@ export default function Index() {
 }
 export async function loader({ request }) {
   const userId = await requireUserSession(request);
-  return userId;
+  // return userId;
+
+  const userCount = await getUserCount();
+  const brandsCount = await getBrandsCount();
+  const spiritsCount = await getSpiritsCount();
+  return { userId, userCount, brandsCount, spiritsCount };
 }

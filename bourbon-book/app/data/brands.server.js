@@ -73,3 +73,8 @@ export async function getBrand(id) {
     throw new Error("Failed to get brand.");
   }
 }
+
+export async function getBrandsCount() {
+  const brandCount = await prisma.brand.count({});
+  return brandCount;
+}

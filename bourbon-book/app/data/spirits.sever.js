@@ -117,3 +117,8 @@ export async function getSpiritsBySpirit(spirit) {
     throw new Error("Failed to get spirits by spirit name.");
   }
 }
+
+export async function getSpiritsCount() {
+  const spiritCount = await prisma.spirit.count({});
+  return spiritCount;
+}
