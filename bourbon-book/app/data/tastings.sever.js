@@ -1,6 +1,9 @@
 import { prisma } from "./database.server";
 
-export async function addTasting(tastingData) {
+export async function addTasting(tastingData, userId) {
+  if (!userId) {
+    throw new Error("Failed to add tasting. No session");
+  }
   try {
     return await prisma.tasting.create({
       data: {
@@ -8,6 +11,7 @@ export async function addTasting(tastingData) {
         spiritName: tastingData.spiritName,
         rating: +tastingData.rating,
         notes: tastingData.notes,
+        userId: userId,
       },
     });
   } catch (error) {
@@ -16,9 +20,13 @@ export async function addTasting(tastingData) {
   }
 }
 
-export async function getTastings() {
+export async function getTastings(userId) {
+  if (!userId) {
+    throw new Error("Failed to get tastings. No session.");
+  }
   try {
     const tastings = await prisma.tasting.findMany({
+      where: { userId },
       orderBy: { spiritName: "asc" },
     });
     return tastings;

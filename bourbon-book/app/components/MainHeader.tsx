@@ -56,13 +56,15 @@ function MainHeader() {
               Collection
             </NavLink>
           </li>
+          <li className="flex-auto">
+            <button className="text-xl font-bold hover:underline text-red hover:text-white [&.active]:text-amber px-1 border-2 rounded">
+              <Form method="post" id="logout-form" action="logout">
+                <button className="cta">Logout</button>
+              </Form>
+            </button>
+          </li>
         </ul>
       </nav>
-      {/* <nav id="cta-nav">
-        <Form method="post" action="logout">
-          <button className="cta">Logout</button>
-        </Form>
-      </nav> */}
     </header>
   );
 }

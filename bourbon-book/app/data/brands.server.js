@@ -1,6 +1,16 @@
 import { prisma } from "./database.server";
 
 export async function addBrand(brandData) {
+  const existingBrand = await prisma.brand.findFirst({
+    where: { name: brandData.name },
+  });
+
+  if (existingBrand) {
+    const error = new Error(`Brand ${brandData.name} exists already.`);
+    error.status = 422;
+    throw error;
+  }
+
   try {
     return await prisma.brand.create({
       data: {

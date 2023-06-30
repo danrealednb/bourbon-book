@@ -2,6 +2,7 @@ import { FaPlus, FaDownload } from "react-icons/fa";
 import { Link, useLoaderData } from "@remix-run/react";
 import TastingsList from "~/components/tastings/TastingsList";
 import { getTastings } from "~/data/tastings.sever";
+import { requireUserSession } from "~/data/auth.server";
 
 export default function TastingsPage() {
   const tastings = useLoaderData();
@@ -41,7 +42,8 @@ export default function TastingsPage() {
   );
 }
 
-export async function loader() {
-  const tastings = await getTastings();
+export async function loader({ request }) {
+  const userId = await requireUserSession(request);
+  const tastings = await getTastings(userId);
   return tastings;
 }
