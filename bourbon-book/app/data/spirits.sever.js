@@ -21,7 +21,15 @@ export async function addSpirit(spiritData) {
 export async function getSpirits() {
   try {
     const spirits = await prisma.spirit.findMany({
-      orderBy: { name: "asc" },
+      // orderBy: { name: "asc" },
+      orderBy: [
+        {
+          brandName: "asc",
+        },
+        {
+          name: "asc",
+        },
+      ],
     });
     return spirits;
   } catch (error) {

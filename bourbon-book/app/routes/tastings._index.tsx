@@ -1,16 +1,47 @@
 import { FaPlus, FaDownload } from "react-icons/fa";
-import { Link } from "@remix-run/react";
-export default function TastingPage() {
+import { Link, useLoaderData } from "@remix-run/react";
+import TastingsList from "~/components/tastings/TastingsList";
+import { getTastings } from "~/data/tastings.sever";
+
+export default function TastingsPage() {
+  const tastings = useLoaderData();
+  const hasTastings = tastings && tastings.length > 0;
+
   return (
     <>
-      <h1>Future Tastings List Page</h1>
       <main>
-        <Link to="add">
-          <FaPlus />
-          <span>Add Tasting</span>
-        </Link>
-        <div>Tasting Listing Data Component Will Go Here</div>
+        <div className="flex justify-center py-5">
+          <Link to="add">
+            <span className="flex px-1 text-justify text-white border-2 rounded">
+              <FaPlus />
+              Add Tasting
+            </span>
+          </Link>
+        </div>
+
+        {/* <SpiritFilterBox /> */}
+
+        {hasTastings && <TastingsList tastings={tastings} />}
+        {!hasTastings && (
+          <section id="no-events" className="flex justify-center">
+            <div className="grid justify-center text-center">
+              <h1 className="text-white">No tastings found</h1>
+              <p className="text-white">
+                Start{" "}
+                <Link to="add" className="underline">
+                  adding some
+                </Link>{" "}
+                today.
+              </p>
+            </div>
+          </section>
+        )}
       </main>
     </>
   );
+}
+
+export async function loader() {
+  const tastings = await getTastings();
+  return tastings;
 }
