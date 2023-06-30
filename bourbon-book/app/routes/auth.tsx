@@ -34,7 +34,7 @@ export async function action({ request }) {
       return await signup(credentials);
     }
   } catch (error) {
-    if (error.status === 422) {
+    if (error.status === 422 || error.status === 401) {
       return { credentials: error.message };
     }
   }

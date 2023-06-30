@@ -52,22 +52,21 @@ export async function login({ email, password }) {
   //check user exists
   const existingUser = await prisma.user.findFirst({ where: { email } });
   if (!existingUser) {
-    const error = new Error(
-      "Could not log you in. Please check the provided credentials."
-    );
+    const error = new Error("Email Address Was Not Found");
     error.status = 401;
+    error.message = "Email Address Was Not Found";
     throw error;
   }
 
   // check the password is correct
   const passwordCorrect = await compare(password, existingUser.password);
-
   if (!passwordCorrect) {
     const error = new Error("Password is incorrect.");
     error.status = 401;
+    error.message = "Password is incorrect.";
     throw error;
   }
-  // create cookie and return session
+  //create cookie and return session
   return createUserSession(existingUser.id, "/");
 }
 

@@ -45,12 +45,15 @@ function AuthForm() {
         <input type="password" id="password" name="password" minLength={7} />
       </p>
       {validationErrors && (
-        <ul>
+        <ul className="flex justify-center">
           {Object.values(validationErrors).map((error) => (
-            <li key={error}>{error}</li>
+            <li className="text-white text-xl" key={error}>
+              {error}
+            </li>
           ))}
         </ul>
       )}
+
       <div className="form-actions grid justify-center items-center text-center text-white py-5 space-x-2 space-y-10">
         <button
           disabled={isSubmitting}
