@@ -1,6 +1,8 @@
-import { NavLink, Form } from "@remix-run/react";
+import { NavLink, Form, useLoaderData, Link } from "@remix-run/react";
 import Logo from "~/components/util/Logo";
+
 function MainHeader() {
+  const userId = useLoaderData();
   return (
     <header id="main-header">
       <div className="flex justify-center items-center space-x-2">
@@ -57,11 +59,27 @@ function MainHeader() {
             </NavLink>
           </li>
           <li className="flex-auto">
-            <button className="text-xl font-bold hover:underline text-red hover:text-white [&.active]:text-amber px-1 border-2 rounded">
+            {/* <button className="text-xl font-bold hover:underline text-red hover:text-white [&.active]:text-amber px-1 border-2 rounded">
+              
+            {userId && <button className="cta-alt">Logout</button>}
+              
+              
               <Form method="post" id="logout-form" action="logout">
                 <button className="cta">Logout</button>
               </Form>
-            </button>
+            </button> */}
+            <Form method="post" id="logout-form" action="/logout">
+              {userId && (
+                <button className="text-yellow px-2 border-4 rounded">
+                  Logout
+                </button>
+              )}
+            </Form>
+            {!userId && (
+              <Link to="/auth" className="cta">
+                Login
+              </Link>
+            )}
           </li>
         </ul>
       </nav>

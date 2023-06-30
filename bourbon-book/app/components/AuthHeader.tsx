@@ -1,8 +1,9 @@
 import Logo from "~/components/util/Logo";
 import { Link, NavLink, useLoaderData, Form } from "@remix-run/react";
 
-function MainHeader() {
+function AuthHeader() {
   const userId = useLoaderData();
+  console.log("---LOADER DATA USER ID AUTH HEADER---", userId);
   return (
     <header id="main-header">
       <div className="flex justify-center items-center space-x-2">
@@ -39,4 +40,4 @@ function MainHeader() {
   );
 }
 
-export default MainHeader;
+export default AuthHeader;

@@ -1,6 +1,7 @@
 // import type { V2_MetaFunction } from "@remix-run/node";
 import MainHeader from "~/components/MainHeader";
 import { FaGlassWhiskey } from "react-icons/fa";
+import { requireUserSession } from "~/data/auth.server";
 
 // export const meta: V2_MetaFunction = () => {
 //   return [
@@ -42,11 +43,21 @@ export default function Index() {
         Welcome to My Bourbon Book
       </h1>
       <div className="grid justify-center">
-        <p className="text-white">
+        <p className="text-white text-center">
           My Bourbon Book is where you can keep track of your bourbon collection
-          and tastings. Cheers!
+          and tastings.
         </p>
-        <div className="flex justify-center">
+        <p className="text-white text-center">
+          If you have any feature requests please email{" "}
+          <a
+            className="underline"
+            href="mailto:djreale@gmail.com?subject=MBB%20Feedback"
+          >
+            djreale@gmail.com
+          </a>
+        </p>
+        <div className="flex justify-center text-white space-x-2 pt-5">
+          <p className="font-bold"> Cheers!</p>
           <FaGlassWhiskey className="text-white text-3xl" />
         </div>
       </div>
@@ -55,4 +66,8 @@ export default function Index() {
     //   <MainHeader />
     // </div>
   );
+}
+export async function loader({ request }) {
+  const userId = await requireUserSession(request);
+  return userId;
 }
