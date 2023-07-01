@@ -15,7 +15,7 @@ function MainHeader() {
           <li className="flex-auto"></li>
           <li className="flex-auto">
             <NavLink
-              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              className="text-xl font-bold underline text-white hover:text-red [&.active]:text-amber"
               to="/"
               end
             >
@@ -25,7 +25,7 @@ function MainHeader() {
           <li className="flex-auto">
             <NavLink
               to="/brands"
-              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              className="text-xl font-bold underline text-white hover:text-red [&.active]:text-amber"
               end
             >
               Brands
@@ -34,7 +34,7 @@ function MainHeader() {
           <li className="flex-auto">
             <NavLink
               to="/spirits"
-              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              className="text-xl font-bold underline text-white hover:text-red [&.active]:text-amber"
               end
             >
               Spirits
@@ -43,7 +43,7 @@ function MainHeader() {
           <li className="flex-auto">
             <NavLink
               to="/tastings"
-              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              className="text-xl font-bold underline text-white hover:text-red [&.active]:text-amber"
               end
             >
               Tastings
@@ -52,7 +52,7 @@ function MainHeader() {
           <li className="flex-auto">
             <NavLink
               to="/collection"
-              className="text-xl font-bold hover:underline text-white hover:text-red [&.active]:text-amber"
+              className="text-xl font-bold underline text-white hover:text-red [&.active]:text-amber"
               end
             >
               Collection
