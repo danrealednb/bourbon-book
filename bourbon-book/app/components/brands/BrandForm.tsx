@@ -4,11 +4,13 @@ import {
   useNavigation,
   useLoaderData,
   useParams,
+  useActionData,
 } from "@remix-run/react";
 // import { useState } from "react";
 
 function BrandForm() {
   const brandData = useLoaderData();
+  const validationErrors = useActionData();
   const params = useParams();
   const navigation = useNavigation();
   const isSubmitting = navigation.state !== "idle";
@@ -48,6 +50,15 @@ function BrandForm() {
           placeholder="Enter Brand Here"
         />
       </p>
+      {validationErrors && (
+        <ul className="flex justify-center">
+          {Object.values(validationErrors).map((error) => (
+            <li className="text-white text-xl" key={error}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="form-actions flex justify-center items-center py-5 space-x-2">
         <button
           disabled={isSubmitting}

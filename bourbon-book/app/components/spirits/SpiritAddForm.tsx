@@ -4,6 +4,7 @@ import {
   useNavigation,
   useLoaderData,
   useParams,
+  useActionData,
 } from "@remix-run/react";
 
 import { useState } from "react";
@@ -16,7 +17,7 @@ type BRAND = { id: string; name: string; dateAdded: string };
 
 function SpiritAddForm() {
   const brands = useLoaderData();
-
+  const validationErrors = useActionData();
   // const [whiskey_type, setType] = useState(WHISKEY_TYPES.BOURBON);
   //   const [whiskey_type, setType] = useState(WHISKEY_TYPES[0]);
   //   const handleChange = (e) => setType(e.target.value);
@@ -134,6 +135,15 @@ function SpiritAddForm() {
           </p>
         </p>
       </div>
+      {validationErrors && (
+        <ul className="flex justify-center">
+          {Object.values(validationErrors).map((error) => (
+            <li className="text-white text-xl" key={error}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="form-actions flex justify-center items-center py-5 space-x-2">
         <button
           disabled={isSubmitting}

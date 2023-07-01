@@ -1,6 +1,23 @@
 import { prisma } from "./database.server";
 
 export async function addSpirit(spiritData) {
+  const existingSpirit = await prisma.spirit.findFirst({
+    where: {
+      AND: [
+        { name: spiritData.name },
+        { brandId: spiritData.brandId },
+        { brandName: spiritData.brandName },
+      ],
+    },
+  });
+
+  if (existingSpirit) {
+    const error = new Error(
+      `Spirit ${spiritData.name} exists already for Brand ${spiritData.brandName}`
+    );
+    error.status = 422;
+    throw error;
+  }
   try {
     return await prisma.spirit.create({
       data: {

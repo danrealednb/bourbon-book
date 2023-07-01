@@ -17,7 +17,12 @@ export async function action({ request }) {
   const formData = await request.formData();
   const brandData = Object.fromEntries(formData);
   // console.log(eventData, formData)
-
-  await addBrand(brandData);
-  return redirect("/brands");
+  try {
+    await addBrand(brandData);
+    return redirect("/brands");
+  } catch (error) {
+    if (error.status === 422 || error.status === 401) {
+      return { brand: error.message };
+    }
+  }
 }

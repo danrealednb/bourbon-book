@@ -25,6 +25,12 @@ export async function action({ request }) {
   const formData = await request.formData();
   const spiritData = Object.fromEntries(formData);
   // console.log(spiritData);
-  await addSpirit(spiritData);
-  return redirect("/spirits");
+  try {
+    await addSpirit(spiritData);
+    return redirect("/spirits");
+  } catch (error) {
+    if (error.status === 422 || error.status === 401) {
+      return { spirit: error.message };
+    }
+  }
 }
