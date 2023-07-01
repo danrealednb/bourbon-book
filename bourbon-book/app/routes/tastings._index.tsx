@@ -1,8 +1,9 @@
 import { FaPlus, FaDownload } from "react-icons/fa";
 import { Link, useLoaderData } from "@remix-run/react";
 import TastingsList from "~/components/tastings/TastingsList";
-import { getTastings } from "~/data/tastings.sever";
+import { getTastingSearch } from "~/data/tastings.sever";
 import { requireUserSession } from "~/data/auth.server";
+import SpiritFilterBox from "~/components/spirits/SpiritFilterBox";
 
 export default function TastingsPage() {
   const tastings = useLoaderData();
@@ -20,7 +21,7 @@ export default function TastingsPage() {
           </Link>
         </div>
 
-        {/* <SpiritFilterBox /> */}
+        <SpiritFilterBox path="/tastings" />
 
         {hasTastings && <TastingsList tastings={tastings} />}
         {!hasTastings && (
@@ -43,7 +44,10 @@ export default function TastingsPage() {
 }
 
 export async function loader({ request }) {
+  const url = new URL(request.url);
+  const search = new URLSearchParams(url.search);
+  const query = search.get("query") || "";
   const userId = await requireUserSession(request);
-  const tastings = await getTastings(userId);
+  const tastings = await getTastingSearch(userId, query);
   return tastings;
 }

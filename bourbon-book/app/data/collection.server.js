@@ -77,3 +77,21 @@ export async function getCollectionItem(id) {
     throw new Error("Failed to get collection item.");
   }
 }
+
+export async function getCollectionSearch(userId, spirit) {
+  try {
+    const collection = await prisma.collection.findMany({
+      where: {
+        spiritName: {
+          contains: spirit,
+        },
+        userId,
+      },
+      orderBy: { spiritName: "asc" },
+    });
+    return collection;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to get collection by search");
+  }
+}

@@ -1,7 +1,6 @@
 import { Form, useSearchParams, useNavigate } from "@remix-run/react";
-import { useState } from "react";
 
-function SpiritFilterBox() {
+function SpiritFilterBox({ path }) {
   const navigate = useNavigate();
 
   const [params] = useSearchParams();
@@ -9,7 +8,7 @@ function SpiritFilterBox() {
   const handleChange = () => {
     document.getElementById("query").value = "";
     params.delete("filter");
-    navigate("/spirits");
+    navigate(path);
   };
 
   return (

@@ -1,8 +1,9 @@
 import { FaPlus, FaDownload } from "react-icons/fa";
 import { Link, useLoaderData } from "@remix-run/react";
 import CollectionList from "~/components/collection/CollectionList";
-import { getCollection } from "~/data/collection.server";
+import { getCollectionSearch } from "~/data/collection.server";
 import { requireUserSession } from "~/data/auth.server";
+import SpiritFilterBox from "~/components/spirits/SpiritFilterBox";
 
 export default function CollectionPage() {
   const collection = useLoaderData();
@@ -20,7 +21,7 @@ export default function CollectionPage() {
           </Link>
         </div>
 
-        {/* <SpiritFilterBox /> */}
+        <SpiritFilterBox path="/collection" />
 
         {hasCollection && <CollectionList spirits={collection} />}
         {!hasCollection && (
@@ -43,7 +44,12 @@ export default function CollectionPage() {
 }
 
 export async function loader({ request }) {
+  const url = new URL(request.url);
+  const search = new URLSearchParams(url.search);
+  const query = search.get("query") || "";
+
   const userId = await requireUserSession(request);
-  const collection = await getCollection(userId);
+  const collection = await getCollectionSearch(userId, query);
+
   return collection;
 }

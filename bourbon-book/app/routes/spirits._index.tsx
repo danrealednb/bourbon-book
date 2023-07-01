@@ -19,7 +19,7 @@ export default function SpiritsPage() {
           </Link>
         </div>
 
-        <SpiritFilterBox />
+        <SpiritFilterBox path="/spirits" />
 
         {hasSpirits && <SpiritsList spirits={spirits} />}
         {!hasSpirits && (

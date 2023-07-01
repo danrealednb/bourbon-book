@@ -77,3 +77,32 @@ export async function getTasting(id) {
     throw new Error("Failed to get tasting.");
   }
 }
+
+export async function getTastingSearch(userId, spirit) {
+  try {
+    const tastings = await prisma.tasting.findMany({
+      where: {
+        OR: [
+          {
+            spiritName: {
+              contains: spirit,
+            },
+          },
+          {
+            notes: {
+              contains: spirit,
+            },
+          },
+        ],
+        AND: {
+          userId,
+        },
+      },
+      orderBy: { spiritName: "asc" },
+    });
+    return tastings;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to get tastings by search");
+  }
+}
