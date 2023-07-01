@@ -2,7 +2,7 @@
 import MainHeader from "~/components/MainHeader";
 import { FaGlassWhiskey } from "react-icons/fa";
 import { getUserCount, requireUserSession } from "~/data/auth.server";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Link } from "@remix-run/react";
 import { getBrandsCount } from "~/data/brands.server";
 import { getSpiritsCount } from "~/data/spirits.sever";
 
@@ -59,6 +59,13 @@ export default function Index() {
           >
             djreale@gmail.com
           </a>
+        </p>
+        <p className="text-white text-center py-5">
+          Start adding to{" "}
+          <Link to="/collection" className="underline">
+            your collection{" "}
+          </Link>
+          today!
         </p>
 
         <div className="flex justify-center text-white space-x-2 pt-5">
