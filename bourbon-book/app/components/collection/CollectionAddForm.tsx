@@ -42,7 +42,12 @@ function CollectionForm() {
             Choose Spirit
           </label>
           <p>
-            <select id="spiritId" name="spiritId" onChange={handleSpiritName}>
+            <select
+              id="spiritId"
+              name="spiritId"
+              onChange={handleSpiritName}
+              className="border-2 border-white rounded"
+            >
               {spiritData.map((spirit) => {
                 return (
                   <option key={spirit.name} value={spirit.id}>
@@ -62,12 +67,12 @@ function CollectionForm() {
       />
       <div className="flex justify-center items-center space-x-2">
         <input
+          className="rounded"
           id="opened"
           type="checkbox"
           value={open_cb === true ? "true" : "false"}
           checked={open_cb}
           name="opened"
-          className=""
           onChange={handleOpenCB}
         />
         <label htmlFor="opened-radio" className="text-white">
@@ -85,7 +90,7 @@ function CollectionForm() {
           value={finished_cb === true ? "true" : "false"}
           checked={finished_cb}
           name="finished"
-          className=""
+          className="rounded"
           onChange={handleFinishedCB}
         />
         <label htmlFor="finished-radio" className="text-white">

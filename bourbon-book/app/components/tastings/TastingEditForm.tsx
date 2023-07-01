@@ -54,6 +54,7 @@ function TastingEditForm() {
               name="spiritId"
               onChange={handleSpiritName}
               defaultValue={defaultValues.spiritId}
+              className="border-2 border-white rounded"
             >
               {spirits.map((spirit) => {
                 return (
@@ -80,6 +81,7 @@ function TastingEditForm() {
             Tasting Notes
           </label>
           <textarea
+            className="border-2 border-white rounded"
             id="notes"
             name="notes"
             placeholder="Enter Tasting Notes Here"
@@ -94,6 +96,7 @@ function TastingEditForm() {
             Rating (Min 0 - Max 100)
           </label>
           <input
+            className="border-2 border-white rounded"
             type="number"
             id="rating"
             name="rating"

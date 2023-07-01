@@ -36,13 +36,25 @@ function AuthForm() {
         <label htmlFor="email" className="text-white">
           Email Address
         </label>
-        <input type="email" id="email" name="email" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          className="border-2 border-white rounded"
+        />
       </p>
       <p className="grid justify-center items-center text-center py-5">
         <label htmlFor="password" className="text-white">
           Password
         </label>
-        <input type="password" id="password" name="password" minLength={7} />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          minLength={7}
+          className="border-2 border-white rounded"
+        />
       </p>
       {validationErrors && (
         <ul className="flex justify-center">

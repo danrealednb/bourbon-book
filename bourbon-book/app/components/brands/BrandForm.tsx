@@ -39,6 +39,7 @@ function BrandForm() {
           Brand Name
         </label>
         <input
+          className="border-2 border-white rounded"
           type="text"
           id="name"
           name="name"

@@ -32,7 +32,12 @@ function TastingAddForm() {
             Choose Spirit
           </label>
           <p>
-            <select id="spiritId" name="spiritId" onChange={handleSpiritName}>
+            <select
+              id="spiritId"
+              name="spiritId"
+              onChange={handleSpiritName}
+              className="border-2 border-white rounded"
+            >
               {spiritData.map((spirit) => {
                 return (
                   <option key={spirit.name} value={spirit.id}>
@@ -56,6 +61,7 @@ function TastingAddForm() {
             Tasting Notes
           </label>
           <textarea
+            className="border-2 border-white rounded"
             id="notes"
             name="notes"
             placeholder="Enter Tasting Notes Here"
@@ -69,6 +75,7 @@ function TastingAddForm() {
             Rating (Min 0 - Max 100)
           </label>
           <input
+            className="border-2 border-white rounded"
             type="number"
             id="rating"
             name="rating"

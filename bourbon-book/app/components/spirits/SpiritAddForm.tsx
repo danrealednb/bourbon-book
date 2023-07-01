@@ -36,7 +36,13 @@ function SpiritAddForm() {
         <label htmlFor="name" className="text-white py-2 text-center">
           Spirit Name
         </label>
-        <input type="text" id="name" name="name" required />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          className="border-2 border-white rounded"
+        />
       </p>
 
       <div className="form-actions flex justify-center items-center py-5">
@@ -45,7 +51,12 @@ function SpiritAddForm() {
             Brand
           </label>
           <p>
-            <select id="brandId" name="brandId" onChange={handleChangeBrand}>
+            <select
+              id="brandId"
+              name="brandId"
+              onChange={handleChangeBrand}
+              className="border-2 border-white rounded"
+            >
               {brands.map((brand: BRAND) => {
                 return (
                   <option key={brand.name} value={brand.id}>
@@ -72,6 +83,7 @@ function SpiritAddForm() {
             Proof
           </label>
           <input
+            className="border-2 border-white rounded"
             type="number"
             id="proof"
             name="proof"
@@ -88,6 +100,7 @@ function SpiritAddForm() {
             Age
           </label>
           <input
+            className="border-2 border-white rounded"
             type="number"
             id="age"
             name="age"
@@ -104,7 +117,12 @@ function SpiritAddForm() {
             Whiskey Type
           </label>
           <p>
-            <select id="type" name="type" defaultValue={WHISKEY_TYPES[0]}>
+            <select
+              id="type"
+              name="type"
+              defaultValue={WHISKEY_TYPES[0]}
+              className="border-2 border-white rounded"
+            >
               {WHISKEY_TYPES.map((whiskey) => {
                 return (
                   <option key={whiskey} value={whiskey}>

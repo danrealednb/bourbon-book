@@ -64,6 +64,7 @@ function CollectionForm() {
               name="spiritId"
               onChange={handleSpiritName}
               defaultValue={defaultValues.spiritId}
+              className="border-2 border-white rounded"
             >
               {spirits.map((spirit) => {
                 return (
@@ -90,7 +91,7 @@ function CollectionForm() {
           value={open_cb === true ? "true" : "false"}
           checked={open_cb}
           name="opened"
-          className=""
+          className="rounded"
           onChange={handleOpenCB}
         />
         <label htmlFor="opened-radio" className="text-white">
@@ -107,7 +108,7 @@ function CollectionForm() {
           type="checkbox"
           value={finished_cb === true ? "true" : "false"}
           name="finished"
-          className=""
+          className="rounded"
           onChange={handleFinishedCB}
           checked={finished_cb}
         />

@@ -61,6 +61,7 @@ function SpiritForm() {
           Spirit Name
         </label>
         <input
+          className="border-2 border-white rounded"
           type="text"
           id="name"
           name="name"
@@ -80,6 +81,7 @@ function SpiritForm() {
               name="brandId"
               onChange={handleChangeBrand}
               defaultValue={defaultValues.brandId}
+              className="border-2 border-white rounded"
             >
               {brands.map((brand: BRAND) => {
                 return (
@@ -108,6 +110,7 @@ function SpiritForm() {
             Proof
           </label>
           <input
+            className="border-2 border-white rounded"
             type="number"
             id="proof"
             name="proof"
@@ -124,6 +127,7 @@ function SpiritForm() {
             Age
           </label>
           <input
+            className="border-2 border-white rounded"
             type="number"
             id="age"
             name="age"
@@ -141,7 +145,12 @@ function SpiritForm() {
             Whiskey Type
           </label>
           <p>
-            <select id="type" name="type" defaultValue={defaultValues.type}>
+            <select
+              id="type"
+              name="type"
+              defaultValue={defaultValues.type}
+              className="border-2 border-white rounded"
+            >
               {WHISKEY_TYPES.map((whiskey) => {
                 return (
                   <option key={whiskey} value={whiskey}>
