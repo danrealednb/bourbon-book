@@ -1,11 +1,13 @@
 import { Outlet } from "@remix-run/react";
 import MainHeader from "~/components/MainHeader";
 import { requireUserSession } from "~/data/auth.server";
+import SideNav from "~/components/SideNav";
 
 export default function SpiritsLayout() {
   return (
     <>
-      <MainHeader />
+      {/* <MainHeader /> */}
+      <SideNav />
       <Outlet />
     </>
   );

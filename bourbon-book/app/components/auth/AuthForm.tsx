@@ -16,6 +16,9 @@ function AuthForm() {
 
   const submitBtnCaption = authMode === "login" ? "Login" : "Create User";
 
+  const transitionCaption =
+    authMode === "login" ? "Authenticating..." : "Creating User...";
+
   const toggleBtnCaption =
     authMode === "login" ? "Create A New User" : "Login With Existing User";
 
@@ -71,7 +74,7 @@ function AuthForm() {
           disabled={isSubmitting}
           className="px-1 text-white border-2 rounded"
         >
-          {isSubmitting ? "Authenticating" : submitBtnCaption}
+          {isSubmitting ? transitionCaption : submitBtnCaption}
         </button>
         <button className="px-1 text-white border-2 rounded">
           <Link to={authMode === "login" ? "?mode=signup" : "?mode=login"}>

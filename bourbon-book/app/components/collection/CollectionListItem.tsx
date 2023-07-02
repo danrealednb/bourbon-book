@@ -1,5 +1,5 @@
 import { Link, useFetcher } from "@remix-run/react";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 function CollectionListItem({ id, spirit }) {
   const fetcher = useFetcher();
@@ -31,26 +31,25 @@ function CollectionListItem({ id, spirit }) {
         <h2 className="expense-title font-bold py-1 text-lg text-center">
           {spirit.spiritName}
         </h2>
-        <div className="flex justify-center space-x-2">
+        <div className="flex justify-center items-center space-x-2">
           <label>Opened</label>
           <p>
             {spirit.opened === true ? (
               <FaCheckCircle className="text-green text-l" />
             ) : (
-              <FaCheckCircle className="text-red text-l" />
+              <FaTimesCircle className="text-red text-l" />
             )}
           </p>
         </div>
 
-        <div className="flex justify-center space-x-2">
+        <div className="flex justify-center items-center space-x-2">
           <label>Finished</label>
-          <p>
-            {spirit.finished === true ? (
-              <FaCheckCircle className="text-green text-l" />
-            ) : (
-              <FaCheckCircle className="text-red text-l" />
-            )}
-          </p>
+
+          {spirit.finished === true ? (
+            <FaCheckCircle className="text-green text-l" />
+          ) : (
+            <FaTimesCircle className="text-red text-l" />
+          )}
         </div>
       </div>
       <menu className="expense-actions flex justify-center items-center py-5 space-x-2">

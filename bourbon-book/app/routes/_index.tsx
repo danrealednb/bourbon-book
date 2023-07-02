@@ -5,6 +5,7 @@ import { getUserCount, requireUserSession } from "~/data/auth.server";
 import { useLoaderData, Link } from "@remix-run/react";
 import { getBrandsCount } from "~/data/brands.server";
 import { getSpiritsCount } from "~/data/spirits.sever";
+import SideNav from "~/components/SideNav";
 
 // export const meta: V2_MetaFunction = () => {
 //   return [
@@ -42,7 +43,8 @@ export default function Index() {
           </a>
         </li>
       </ul> */}
-      <MainHeader />
+      <SideNav />
+      {/* <MainHeader /> */}
       <h1 className="text-xl font-bold text-white flex justify-center py-10">
         Welcome to My Bourbon Book
       </h1>

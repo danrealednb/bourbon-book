@@ -1,11 +1,13 @@
 import { Outlet, Link } from "@remix-run/react";
 import MainHeader from "~/components/MainHeader";
 import { requireUserSession } from "~/data/auth.server";
+import SideNav from "~/components/SideNav";
 
 export default function TastingsLayout() {
   return (
     <>
-      <MainHeader />
+      {/* <MainHeader /> */}
+      <SideNav />
       <Outlet />
     </>
   );

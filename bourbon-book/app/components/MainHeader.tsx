@@ -11,7 +11,7 @@ function MainHeader() {
       </div>
 
       <nav id="main-nav">
-        <ul className="flex space-x-1 space-y-5">
+        <ul className="flex items-center space-x-1 space-y-5">
           <li className="flex-auto"></li>
           <li className="flex-auto">
             <NavLink

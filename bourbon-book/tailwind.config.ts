@@ -15,6 +15,7 @@ export default {
       amber: colors.amber[500],
       yellow: colors.yellow[500],
       gray: colors.gray[500],
+      orange: colors.orange[500],
     },
     extend: {},
   },

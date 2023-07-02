@@ -1,5 +1,5 @@
 import { Link, useFetcher } from "@remix-run/react";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 function TastingListItem({ id, tasting }) {
   const fetcher = useFetcher();
@@ -29,7 +29,11 @@ function TastingListItem({ id, tasting }) {
     <article className="expense-item">
       <div className="expense-title text-center">
         <h2 className="font-bold text-lg">{tasting.spiritName}</h2>
-        <p>{tasting.rating}</p>
+        <div className="flex justify-center items-center space-x-2">
+          <FaStar className="text-yellow" />
+          <p>{tasting.rating}</p>
+        </div>
+
         <p>{tasting.notes}</p>
       </div>
       <menu className="expense-actions flex justify-center items-center py-5 space-x-2">
