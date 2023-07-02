@@ -30,7 +30,7 @@ export async function action({ params, request }) {
   if (request.method === "PATCH") {
     const formData = await request.formData();
     const spiritData = Object.fromEntries(formData);
-    console.log(spiritData);
+    // console.log(spiritData);
     await updateSpirit(spiritId, spiritData);
     return redirect("/spirits");
   } else if (request.method === "DELETE") {

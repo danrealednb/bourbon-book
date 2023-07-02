@@ -41,7 +41,7 @@ export async function action({ params, request }) {
       opened: collectionData.opened === "true",
       finished: collectionData.finished === "true",
     };
-    console.log(obj);
+    // console.log(obj);
 
     await updateCollectionItem(spiritId, obj);
     return redirect("/collection");

@@ -3,7 +3,7 @@ import { Link, NavLink, useLoaderData, Form } from "@remix-run/react";
 
 function AuthHeader() {
   const userId = useLoaderData();
-  console.log("---LOADER DATA USER ID AUTH HEADER---", userId);
+  // console.log("---LOADER DATA USER ID AUTH HEADER---", userId);
   return (
     <header id="main-header">
       <div className="flex justify-center items-center space-x-2">

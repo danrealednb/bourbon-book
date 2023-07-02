@@ -47,7 +47,7 @@ function SpiritForm() {
   };
 
   // console.log(whiskey_type);
-  console.log(whiskey_brand);
+  // console.log(whiskey_brand);
 
   return (
     <Form

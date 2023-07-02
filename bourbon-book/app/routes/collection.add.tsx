@@ -31,7 +31,7 @@ export async function action({ request }) {
     opened: collectionData.opened === "true",
     finished: collectionData.finished === "true",
   };
-  console.log(obj);
+  // console.log(obj);
 
   await addCollectionItem(obj, userId);
   return redirect("/collection");
